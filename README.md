@@ -1,6 +1,6 @@
 <div align="center" style="margin-bottom: 20px;" >
 
-<video loop autoPlay muted playsInline alt="Qwik Snippets" src="./public/video.mov" width="400" style="margin-bottom: 10px;" ></video>
+<img alt="Qwik Snippets" src="./public/video.gif" width="400" style="margin-bottom: 10px;" />
 
 # Qwik Snippets
 
@@ -95,4 +95,4 @@ At the end you should have something like this:
 
 ## 🔗 Deploy
 
-TBD
+[Here](https://qwik-test-snippets-manuelsanchez2-manuelsanchezweb.vercel.app/)
