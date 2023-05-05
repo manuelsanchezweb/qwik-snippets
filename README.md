@@ -1,65 +1,98 @@
-# Qwik City App ⚡️
+<div align="center" style="margin-bottom: 20px;" >
 
-- [Qwik Docs](https://qwik.builder.io/)
-- [Discord](https://qwik.builder.io/chat)
-- [Qwik GitHub](https://github.com/BuilderIO/qwik)
-- [@QwikDev](https://twitter.com/QwikDev)
-- [Vite](https://vitejs.dev/)
+<video loop autoPlay muted playsInline alt="Qwik Snippets" src="./public/video.mov" width="400" style="margin-bottom: 10px;" ></video>
 
----
+# Qwik Snippets
 
-## Project Structure
+Learn how to setup some cool snippets for Qwik in your VSCode Config
 
-This project is using Qwik with [QwikCity](https://qwik.builder.io/qwikcity/overview/). QwikCity is just an extra set of tools on top of Qwik to make it easier to build a full site, including directory-based routing, layouts, and more.
+</div>
 
-Inside your project, you'll see the following directory structure:
+## 🔧 Config
 
+1. Check `snippets.json` or access [this page](https://pastebin.com/r2pX5GCF).
+2. Open the User Settings in VSCode (Preferences > Configure User Settings).
+3. Choose to create a global configuration or do it in the .tsx files (`typescriptreact.json`)
+
+At the end you should have something like this:
+
+```json
+{
+  // Place your snippets for typescriptreact here. Each snippet is defined under a snippet name and has a prefix, body and
+  // description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+  // $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the
+  // same ids are connected.
+  // Example:
+  // "Print to console": {
+  // 	"prefix": "log",
+  // 	"body": [
+  // 		"console.log('$1');",
+  // 		"$2"
+  // 	],
+  // 	"description": "Log output to console"
+  // }
+  "Qwik Component - No Props": {
+    "prefix": ["component", "comp", "$", "qwik"],
+    "body": [
+      "import { component$ } from '@builder.io/qwik'",
+      "",
+      "export const ${1:${TM_FILENAME_BASE/(.*)/${1:/capitalize}/}} = component$(() => {",
+      "  return <div>${1:${TM_FILENAME_BASE/(.*)/${1:/capitalize}/}}</div>",
+      "})",
+      ""
+    ],
+    "description": "Component Qwik - No Props"
+  },
+  "Qwik Component - With Props": {
+    "prefix": ["component", "comp", "$", "qwik"],
+    "body": [
+      "import { component$ } from '@builder.io/qwik'",
+      "",
+      "interface ${TM_FILENAME_BASE}Props {",
+      "  $1",
+      "}",
+      "export const ${2:${TM_FILENAME_BASE/(.*)/${1:/capitalize}/}} = component$<${TM_FILENAME_BASE}Props>(() => {",
+      "  return <div>${2:${TM_FILENAME_BASE/(.*)/${1:/capitalize}/}}</div>",
+      "})",
+      ""
+    ],
+    "description": "Component Qwik - With Props"
+  },
+  "useSignal Snippet": {
+    "prefix": ["signal", "qwik"],
+    "body": ["const $1 = useSignal<$2>($3)"],
+    "description": "useSignal snippet"
+  },
+  "useStore Snippet": {
+    "prefix": ["store", "qwik"],
+    "body": ["const $1 = useStore<$2>({$3: $4})"],
+    "description": "useStore snippet"
+  },
+  "useTasks Snippet - Server": {
+    "prefix": ["task", "qwik"],
+    "body": [
+      "useTask$(({ track }) => {",
+      " track(() => 'ADD_WHAT_YOU_NEED_TO_WATCH');",
+      " console.log('This is the action that will be triggered in the server on mounting and when the watched value changes')",
+      "})",
+      ""
+    ],
+    "description": "useTasks snippet"
+  },
+  "useVisibleTasks Snippet - Client": {
+    "prefix": ["visible", "task", "qwik"],
+    "body": [
+      "useVisibleTask$(({ track }) => {",
+      " track(() => 'ADD_WHAT_YOU_NEED_TO_WATCH');",
+      " console.log('This is the action that will be triggered in the client on mounting and when the watched value changes')",
+      "})",
+      ""
+    ],
+    "description": "useVisibleTasks snippet"
+  }
+}
 ```
-├── public/
-│   └── ...
-└── src/
-    ├── components/
-    │   └── ...
-    └── routes/
-        └── ...
-```
 
-- `src/routes`: Provides the directory based routing, which can include a hierarchy of `layout.tsx` layout files, and an `index.tsx` file as the page. Additionally, `index.ts` files are endpoints. Please see the [routing docs](https://qwik.builder.io/qwikcity/routing/overview/) for more info.
+## 🔗 Deploy
 
-- `src/components`: Recommended directory for components.
-
-- `public`: Any static assets, like images, can be placed in the public directory. Please see the [Vite public directory](https://vitejs.dev/guide/assets.html#the-public-directory) for more info.
-
-## Add Integrations and deployment
-
-Use the `npm run qwik add` command to add additional integrations. Some examples of integrations include: Cloudflare, Netlify or Express server, and the [Static Site Generator (SSG)](https://qwik.builder.io/qwikcity/guides/static-site-generation/).
-
-```shell
-npm run qwik add # or `yarn qwik add`
-```
-
-## Development
-
-Development mode uses [Vite's development server](https://vitejs.dev/). During development, the `dev` command will server-side render (SSR) the output.
-
-```shell
-npm start # or `yarn start`
-```
-
-> Note: during dev mode, Vite may request a significant number of `.js` files. This does not represent a Qwik production build.
-
-## Preview
-
-The preview command will create a production build of the client modules, a production build of `src/entry.preview.tsx`, and run a local server. The preview server is only for convenience to locally preview a production build, and it should not be used as a production server.
-
-```shell
-npm run preview # or `yarn preview`
-```
-
-## Production
-
-The production build will generate client and server modules by running both client and server build commands. Additionally, the build command will use Typescript to run a type check on the source code.
-
-```shell
-npm run build # or `yarn build`
-```
+TBD

@@ -1,0 +1,34 @@
+{
+  "useSignal Snippet": {
+    "prefix": ["signal", "qwik"],
+    "body": ["const $1 = useSignal<$2>($3)"],
+    "description": "useSignal snippet"
+  },
+  "useStore Snippet": {
+    "prefix": ["store", "qwik"],
+    "body": ["const $1 = useStore<$2>({$3: $4})"],
+    "description": "useStore snippet"
+  },
+  "useTasks Snippet - Server": {
+    "prefix": ["task", "qwik"],
+    "body": [
+      "useTask$(({ track }) => {",
+      " track(() => 'ADD_WHAT_YOU_NEED_TO_WATCH');",
+      " console.log('This is the action that will be triggered in the server on mounting and when the watched value changes')",
+      "})",
+      ""
+    ],
+    "description": "useTasks snippet"
+  },
+  "useVisibleTasks Snippet - Client": {
+    "prefix": ["visible", "task", "qwik"],
+    "body": [
+      "useVisibleTask$(({ track }) => {",
+      " track(() => 'ADD_WHAT_YOU_NEED_TO_WATCH');",
+      " console.log('This is the action that will be triggered in the client on mounting and when the watched value changes')",
+      "})",
+      ""
+    ],
+    "description": "useVisibleTasks snippet"
+  }
+}
