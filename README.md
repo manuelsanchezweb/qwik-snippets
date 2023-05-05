@@ -95,4 +95,4 @@ At the end you should have something like this:
 
 ## 🔗 Deploy
 
-[Here](https://qwik-test-snippets-manuelsanchez2-manuelsanchezweb.vercel.app/)
+[Here](https://qwik-test-snippets.vercel.app/)
